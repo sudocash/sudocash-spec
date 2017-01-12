@@ -1,0 +1,58 @@
+//Schemas 
+
+basic_data_objects = {
+    data = {
+        unique_id: "S7bd23a"
+        borrower_id: 987654321,
+        borrower_name: "Alice", //Optional + Only on Full Throttle
+        lender_id: 123456789,
+        lender_name: "Bob",   //Optional + Only on Full Throttle
+        type: "IOU",     //Default
+        date: "01/01/1970",
+        time: "12:13:12", //Optional + Only on Full Throttle
+        amount: 1202.12,
+        base_amount: 120212,
+        currency: "INR",
+        comment: "For a cup of coffee",  //Optional + Only on Full Throttle
+    },
+    signatures: [{
+        signing_id: 123456789,
+        signature: "Random Characters",
+        signature_method: "RSA-512",
+        hash_method: "MD5",
+        hash: "0ed3476639a8fc6bb0bbd7e1ffb4acc7",
+        content: "The user of 123456789 lent user of 987654321 Rs.1202.12 on 01/01/1970 ID:S7bd23a"
+        //SMS will be "SignatureBase64:HashasBase64:X:1202.12:S7bd23a" //X is an identifier for currency
+    }]
+}
+
+user object = {
+    name: "Abhimanyu",
+    primary_id: "manyu",
+    additional_ids = ["123456789","abhi@manyu.in"], //All ids only on user, rest people will get only what is shown.
+    keys = [
+        {
+            method: "RSA512",
+            pub_key: "KEY",
+            private_key: "KEY", // Of course securely stored only on user end
+            fingerprint: "FP"
+        },
+        {
+            method: "RSA2048",
+            pub_key: "KEY",
+            private_key: "KEY", // Of course securely stored only on user end
+            fingerprint: "FP"
+        }
+    ],
+    signed_statements: [
+        {
+            signing_id: 123456789,
+            signature: "Random Characters",
+            signature_method: "RSA-512",
+            hash_method: "MD5",
+            hash: "0ed3476639a8fc6bb0bbd7e1ffb4acc7",
+            signable_data: "I am Abhimanyu M A, and I own 1234567890. I promise on my honour to  pay any debts incured using my id of 123456789 eventually"
+        }
+    ]
+    
+}
