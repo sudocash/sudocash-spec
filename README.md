@@ -27,4 +27,16 @@ Currently the only transaction supported is requesting for and issuing IOUs. In 
 2. Bob transfers the message to Alice without encryption in case of trustable communication methods (SMS, QRCode) or encrypted with Alice's key in case of untrustable communication methods (Email and Communication Servers)
 3. Bob's device records the transaction and the signature.
 
+###Trusted Group
 
+ToDo: We need to come up with steps to transact in a group that is easier. 
+
+
+###Circular Settlement
+
+The idea is that as the ledger system grows if we could look at the global state we will see that there are circular loops in the system.
+It would be an ideal if circular flows could be detected and removed. 
+
+####Steps Involved
+1. Detect circular flows. 
+2. Use cryptocurrency to keep settling debts and finally the crptocurrency ends up with the person who started the flow itself.
