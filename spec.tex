@@ -51,6 +51,7 @@ The base unit in any transaction is an $IOU Record$ defined as $R$ henceforth. I
 
 The following are examples of a transaction
 
+\subsubsection{IOU Transaction}
 \begin{verbatim}
 transaction = {
   "data": {
@@ -61,6 +62,37 @@ transaction = {
     "type": "IOU",
     "debtor_fingerprint": "DE32 F82D B32D 9898"
     "creditor_fingerprint": "32FF 6321 AD66 212C"
+  },
+  "signatures": [
+    {
+      "method" : "RSA",
+      "strength": "2048",
+      "fingerprint: "DE32 F82D B32D 9898"
+      "signature": <Signature>,
+      "type": "PRIMARY"
+    },
+    {
+      "method" : "RSA",
+      "strength": "2048",
+      "fingerprint: "32FF 6321 AD66 212C"
+      "signature": <Signature>,
+      "type": "SECONDARY",
+    },
+  ]
+}
+\end{verbatim}
+\subsubsection{Cancellation}
+\begin{verbatim}
+transaction = {
+  "data": {
+    "nonce_id": "de7Dew_",
+    "type": "CANCEL",
+    "cancel_nonce": "k9AD-23_",
+    "currency": "INR",
+    "base_amount": 234223,
+    "type": "IOU",
+    "debtor_fingerprint": "32FF 6321 AD66 212C"
+    "creditor_fingerprint": "DE32 F82D B32D 9898"
   },
   "signatures": [
     {
